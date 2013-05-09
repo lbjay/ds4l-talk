@@ -45,7 +45,9 @@ Class outline
    1. aggregation and simple mapreduce example
 1. Logstash
    1. basic input/output
-      
+      * `java -jar logstash.jar agent -f logstash-simple.conf`      
+      * `java -jar logstash.jar agent -f logstash-tcp.conf`      
+      * `java -jar logstash.jar agent -f logstash-es.conf -- kibana --backend elasticsearch://localhost/`      
    1. pubsub w/ redis
    1. output to MongoDB
 1. Usage data collection & analysis
