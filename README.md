@@ -23,4 +23,6 @@ Class outline
    * pubsub w/ redis
    * output to MongoDB
 3. Usage data collection & analysis
-   * 
+   * reading events from apache log
+   * creating custom events
+   * generating simple metrics
