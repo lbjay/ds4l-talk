@@ -36,6 +36,7 @@ Class outline
    1. bibliographic data in MongoDB
       1. import fdocs.json
          * `mongoimport -h dharma.mongohq.com:10045 --db ds4l --collection=fdocs -u<user> -p<pass> < fdocs.json`
+         * mongohq collection copy: import from mongodb://foo:bar@dharma.mongohq.com:10045/ds4l
       1. example queries
          * `fdocs.find({'refereed': True}).count()`
          * `fdocs.find({'references': '2003ApJ...584L..13F'}).count()`
@@ -45,10 +46,21 @@ Class outline
    1. aggregation and simple mapreduce example
 1. Logstash
    1. basic input/output
-      * `java -jar logstash.jar agent -f logstash-simple.conf`      
-      * `java -jar logstash.jar agent -f logstash-tcp.conf`      
-      * `java -jar logstash.jar agent -f logstash-es.conf -- kibana --backend elasticsearch://localhost/`      
+      1. stdin/stdout
+          * `java -jar logstash.jar agent -f logstash-simple.conf`      
+      1. tcp
+          * `java -jar logstash.jar agent -f logstash-tcp.conf`      
+          * `nc localhost 3333`
+      1. logfile/elasticsearch
+          * edit logstash-es.conf and update file path
+          * `java -jar logstash.jar agent -f logstash-es.conf -- kibana --backend elasticsearch://localhost/`      
+          * `head apache.log.example > apache.log`
    1. pubsub w/ redis
+       * `java -jar logstash.jar agent -f logstash-redis.conf`
+       * push apache.log events to redis
+   1. filters
+       * `java -jar logstash.jar agent -f logstash-filter1.conf`
+       * push apache.log events to redis
    1. output to MongoDB
 1. Usage data collection & analysis
    * reading events from apache log
