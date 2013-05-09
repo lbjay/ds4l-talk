@@ -4,6 +4,8 @@ ds4l-talk
 Setup/Requirements
 ------------------
 1. clone this repo to your local environment
+   * `git clone https://github.com/lbjay/ds4l-talk`
+   * `cd ds4l-talk`
 2. run `pip install -r requirements.txt`
    * if `pymongo` fails because of missing compiler try `pip install --install-option='--no_ext' pymongo`
 3. create a free MongoDB instance at https://bridge.mongohq.com/signup
